@@ -4,4 +4,3 @@ def square_matrix_simple(matrix=[]):
     for row in matrix:
         squared.append([i**2 for i in row])
     return squared
-
