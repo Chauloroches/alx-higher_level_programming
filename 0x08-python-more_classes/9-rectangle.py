@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define class"""
+"""define class"""
 class Rectangle:
     """class rectangle"""
     number_of_instances = 0
@@ -73,3 +73,7 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        return cls(size, size)
