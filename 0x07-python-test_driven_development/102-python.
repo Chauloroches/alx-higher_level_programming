@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+#include <Python.h>
+
+void print_python_string(PyObject *p)
+    if (!PyUnicode_Check(p)) {
+        printf("Error: p is not a valid string\n");
+        return;
+    }
+    
+    
+    const char *c_str = PyUnicode_AsUTF8(p);
+    if (c_str == NULL) {
+        printf("Error: Failed to convert Python string to C string\n");
+        return;
+    }
+    
+
+    printf("Python string: %s\n", c_str);
+}
+
+
+int main() {
+    
+    Py_Initialize();
+    
+    
+    PyObject *p = PyUnicode_FromString("Hello, Python!");
+    
+    
+    print_python_string(p);
+    
+    
+    Py_DECREF(p);
+    
+    Py_Finalize();
+    
+    return 0;
+}
